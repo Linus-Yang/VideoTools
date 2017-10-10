@@ -2,7 +2,11 @@ package com.videotranscode;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+
+import com.videotranscode.ui.VideoInfoAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,19 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private RecyclerView mRlView;
+    private VideoInfoAdapter mVideoInfoAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Example of a call to a native method
-        TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+        mRlView = (RecyclerView) findViewById(R.id.rlView);
+        mRlView.setLayoutManager(new LinearLayoutManager(this));
+        mVideoInfoAdapter = new VideoInfoAdapter();
+        mRlView.setAdapter(mVideoInfoAdapter);
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
+
     public native String stringFromJNI();
 }
