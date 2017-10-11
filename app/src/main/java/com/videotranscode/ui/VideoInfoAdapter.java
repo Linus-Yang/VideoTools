@@ -1,6 +1,8 @@
 package com.videotranscode.ui;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 /**
@@ -9,8 +11,11 @@ import android.view.ViewGroup;
 
 public class VideoInfoAdapter extends RecyclerView.Adapter {
 
+
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         return null;
     }
 
