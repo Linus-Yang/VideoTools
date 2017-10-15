@@ -3,11 +3,6 @@ package com.videotranscode.ui;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
-
-import com.videotranscode.entity.VideoInfo;
-
-import java.util.List;
 
 /**
  * Created by linus on 2017/10/12.
@@ -27,9 +22,7 @@ public class GirdImageView extends android.support.v7.widget.AppCompatImageView 
         super(context, attrs, defStyleAttr);
     }
 
-    public void setDataSource(String formatName, List<VideoInfo> videoInfos) {
 
-    }
 
 
 }
