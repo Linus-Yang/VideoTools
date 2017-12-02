@@ -1,9 +1,14 @@
-package com.videotranscode;
+package com.video;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.video.transCode.TransCodeActivity;
+import com.videotranscode.R;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -21,10 +26,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        findViewById(R.id.bt_tran).setOnClickListener(this);
 
     }
 
 
-    public native String stringFromJNI();
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        switch (v.getId()) {
+            case R.id.bt_tran:
+                intent.setClass(this, TransCodeActivity.class);
+                break;
+        }
+        startActivity(intent);
+    }
 }

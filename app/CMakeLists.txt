@@ -32,7 +32,8 @@ add_library(
              native-lib
 
              SHARED
-             src/main/cpp/native-lib.cpp )
+             src/main/cpp/native-lib.cpp
+             src/main/cpp/transCode/FFTransCode.cpp)
 
 
 target_link_libraries(native-lib
